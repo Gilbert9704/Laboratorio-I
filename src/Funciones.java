@@ -1,0 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author User
+ */
+public class Funciones {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("Primera Funcion en Main");
+        Funcion1 a = new Funcion1();
+        Funcion2 b = new Funcion2();
+        System.out.println("Se termina la función");
+    }
+
+    
+    
+}
