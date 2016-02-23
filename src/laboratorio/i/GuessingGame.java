@@ -32,6 +32,26 @@ public class GuessingGame {
         int guess = 0;
         int numGuesses = 1;
         
-    }
+        while (numGuesses > 7 || (guess == answer)){
+            System.out.println("Imagina un numero");
+            java.util.Scanner number = new java.util.Scanner(System.in);
+            guess = number.nextInt();
+                
+                if (guess < answer){
+                    System.out.println("Mayor");
+                } 
+                else if (guess > answer){
+                    System.out.println("Elevado");
+                }
+                else {
+                    System.out.println("Ganaste!");
+                }
+                numGuesses = numGuesses + 1;
+        }
+        if (numGuesses > 7){
+            System.out.println("Perdiste :(");
+        }
+                
+    }       
     
 }
