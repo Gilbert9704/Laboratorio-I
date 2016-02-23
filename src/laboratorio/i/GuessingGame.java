@@ -38,10 +38,10 @@ public class GuessingGame {
             guess = number.nextInt();
                 
                 if (guess < answer){
-                    System.out.println("Mayor");
+                    System.out.println("Elevado");
                 } 
                 else if (guess > answer){
-                    System.out.println("Elevado");
+                    System.out.println("Muy Bajo");
                 }
                 else {
                     System.out.println("Ganaste!");
