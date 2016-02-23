@@ -17,7 +17,7 @@ public class GuessingGame {
         // TODO code application logic here
         String playAgain = "y";
         
-        while (playAgain != "y"){
+        while ("y".equals(playAgain)){
            GuessingGame();
            
            java.util.Scanner play = new java.util.Scanner(System.in);
