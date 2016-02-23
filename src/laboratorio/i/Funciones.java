@@ -1,3 +1,5 @@
+package laboratorio.i;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,11 +18,16 @@ public class Funciones {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Primera Funcion en Main");
-        Funcion1 a = new Funcion1();
-        Funcion2 b = new Funcion2();
+        func1();
+        func2();
         System.out.println("Se termina la función");
     }
-
     
+    public static void func1(){
+        System.out.println("Segunda Función");
+    }
+    public static void func2(){
+        System.out.println("Tercera Función");
+    } 
     
 }
