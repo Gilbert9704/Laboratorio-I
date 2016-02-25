@@ -63,19 +63,30 @@ public class Aerolinea {
             System.out.println("Qué posición desea? (Ventanilla(1)/Pasillo(2))");
             ventanilla_pasillo = VenPas.nextInt();
             
+            if (cuposDispVent == 0){
+                System.out.println("¡Asientos de Clase Ejecutiva llenos!");
+            }
+            
             if (ventanilla_pasillo == 1){
-                while(j <= 3){
+                while(cuposDispVent >= 0){
                     
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0 ){
                         System.out.println("Ingrese el nombre del pasajero");
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
+                        if (cuposDispVent == 0){
+                            System.out.println("Todos los asientos reservados");
+                            break;
+                        }
                         System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispVent);
                         respuesta = pregunta.nextInt(); //Colocar condicional para informar que ya esta lleno los cupos
+                        if (j == 3){
+                            j -= 1;
+                        }
                         if (respuesta == 1 && pasajeroEjecutivo[i][j+1] == null){
-                        }else if (respuesta == 2 && pasajeroEjecutivo[i][j+1] != null){
-                            System.out.println("No hay Cupos disponibles");
+                        }else if (respuesta == 1 && pasajeroEjecutivo[i][j+1] != null){
+                            System.out.println("Todas la Silla se encuentra reservada");
                             break;
                         }else if (respuesta == 0){
                             break;
