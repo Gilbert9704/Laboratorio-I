@@ -17,7 +17,8 @@ public class Aerolinea {
     static int ventanilla_pasillo = 0;
     static int vent_pasi_cent = 0;
     static int respuesta = 0;
-    static byte cuposDispVent = 3;
+    static byte cuposDispVentEjc = 3;
+    static byte cuposDispPassEjc = 3;
     static String pasajeroEjecutivo[][] = new String[2][4];
     static String pasajeroEconomico[][] = new String[7][6];
     static int pasajeroEjecCedula[][] = new int[2][4];
@@ -63,23 +64,23 @@ public class Aerolinea {
             System.out.println("Qué posición desea? (Ventanilla(1)/Pasillo(2))");
             ventanilla_pasillo = VenPas.nextInt();
             
-            if (cuposDispVent == 0){
+            if (cuposDispVentEjc == 0){
                 System.out.println("¡Asientos de Clase Ejecutiva llenos!");
             }
             
             if (ventanilla_pasillo == 1){
-                while(cuposDispVent >= 0){
+                while(cuposDispVentEjc >= 0){
                     
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0 ){
                         System.out.println("Ingrese el nombre del pasajero");
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
-                        if (cuposDispVent == 0){
+                        if (cuposDispVentEjc == 0){
                             System.out.println("Todos los asientos reservados");
                             break;
                         }
-                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispVent);
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispVentEjc);
                         respuesta = pregunta.nextInt(); //Colocar condicional para informar que ya esta lleno los cupos
                         if (j == 3){
                             j -= 1;
@@ -93,24 +94,40 @@ public class Aerolinea {
                         }
                     }
                     j += 1;
-                    cuposDispVent -= 1;
+                    cuposDispVentEjc -= 1;
                 }
                 
             }
             else if (ventanilla_pasillo == 2){
-                j = 2;
-                for (i = 0; i <= 1; i++){
+                i = 1;
+                while (cuposDispPassEjc >= 0){
+                    
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0){
                         System.out.println("Ingrese el nombre del pasajero");
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
+                        if (cuposDispPassEjc == 0){
+                            System.out.println("Todos los asientos reservados");
+                            break;
+                        }
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispPassEjc);
+                        respuesta = pregunta.nextInt();
+                        if (j == 3){
+                            j -= 1;
+                        }
+                        if (respuesta == 1 && pasajeroEjecutivo[i][j+1] == null){
+                        }else if (respuesta == 1 && pasajeroEjecutivo[i][j+1] != null){
+                            System.out.println("Todas la Silla se encuentra reservada");
+                            break;
+                        }else if (respuesta == 0){
+                            break;
+                        }
                     }
-                }
-                if (i > 1){
-                        j += 1;
-                }
-                
+                    j += 1;
+                    cuposDispPassEjc -= 1;
+                        
+                    }
             }
         }
         else if (clase == 2){
