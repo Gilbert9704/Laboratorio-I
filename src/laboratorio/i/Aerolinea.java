@@ -11,7 +11,17 @@ package laboratorio.i;
  * @author User
  */
 public class Aerolinea {
-
+    static int clase = 0;
+    static int i = 0;
+    static int j = 0;
+    static int ventanilla_pasillo = 0;
+    static int vent_pasi_cent = 0;
+    static int respuesta = 0;
+    static byte cuposDispVent = 3;
+    static String pasajeroEjecutivo[][] = new String[2][4];
+    static String pasajeroEconomico[][] = new String[7][6];
+    static int pasajeroEjecCedula[][] = new int[2][4];
+    static int pasajeroEconCedula[][] = new int[7][6];
     /**
      * @param args the command line arguments
      */
@@ -35,16 +45,7 @@ public class Aerolinea {
     }
        
     public static void inscribirPasajero(){
-        int i = 0;
-        int j = 0;
-        int clase = 0;
-        int ventanilla_pasillo = 0;
-        int vent_pasi_cent = 0;
-        int respuesta = 0;
-        String pasajeroEjecutivo[][] = new String[2][4];
-        String pasajeroEconomico[][] = new String[7][6];
-        int pasajeroEjecCedula[][] = new int[2][4];
-        int pasajeroEconCedula[][] = new int[7][6];
+        
         
         java.util.Scanner VenPas = new java.util.Scanner(System.in);
         java.util.Scanner pregunta = new java.util.Scanner(System.in);
@@ -63,27 +64,30 @@ public class Aerolinea {
             ventanilla_pasillo = VenPas.nextInt();
             
             if (ventanilla_pasillo == 1){
-                for (i = 0; i <= 1; i++){
+                while(j <= 3){
+                    
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0 ){
                         System.out.println("Ingrese el nombre del pasajero");
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
-                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))");
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispVent);
                         respuesta = pregunta.nextInt(); //Colocar condicional para informar que ya esta lleno los cupos
-                        if (respuesta == 1 && pasajeroEjecutivo[i+1][j] == null){
+                        if (respuesta == 1 && pasajeroEjecutivo[i][j+1] == null){
+                        }else if (respuesta == 2 && pasajeroEjecutivo[i][j+1] != null){
+                            System.out.println("No hay Cupos disponibles");
+                            break;
                         }else if (respuesta == 0){
                             break;
                         }
                     }
-                }
-                if (i > 1){
                     j += 1;
-                    i = 0;
-                    }
+                    cuposDispVent -= 1;
+                }
+                
             }
             else if (ventanilla_pasillo == 2){
-                j = 1;
+                j = 2;
                 for (i = 0; i <= 1; i++){
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0){
                         System.out.println("Ingrese el nombre del pasajero");
