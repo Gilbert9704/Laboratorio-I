@@ -27,7 +27,9 @@ public class Aerolinea {
     static byte cuposDispCentEco = 13;
     static byte cuposDispPassEco = 13;
     static byte contSillasOcpEjc = 0;
+    static byte contSillasDispEco = 0;
     static byte buscarPasajero = 0;
+    static byte asignarPasajero = 0;
     static String registroNombre = null;
     static int registroCedula = 0;
     static String pasajeroEjecutivo[][] = new String[2][4];
@@ -248,7 +250,7 @@ public class Aerolinea {
     public static void sistemadeReportes(){
         
         java.util.Scanner decision = new java.util.Scanner(System.in);
-        java.util.Scanner Clase = new java.util.Scanner(System.in);
+        java.util.Scanner asigPasaj = new java.util.Scanner(System.in);
         java.util.Scanner regNombre = new java.util.Scanner(System.in);
         java.util.Scanner regCedula = new java.util.Scanner(System.in);
         java.util.Scanner buscarPasaj = new java.util.Scanner(System.in);
@@ -307,7 +309,7 @@ public class Aerolinea {
                 k = 0;
                 for (l = 0; l <= 5; l++){
                     if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
-                        System.out.println("La Unicación del pasajero es: " + k + l);
+                        System.out.println("La Ubicación del pasajero es: " + k + l);
                         break;
                     }
                 if (l == 5 && k == 6){
@@ -320,6 +322,37 @@ public class Aerolinea {
                 }
                 }
             }
+        }
+        else if (accion == 3){
+            k = 0;
+            l = 0;
+            
+            for (i = 0; i <= 41; i++){
+                if (pasajeroEconomico[k][l] == null && pasajeroEconCedula[k][l] == 0 ){
+                    System.out.println("Se encontró disponible la silla: " + k + l + "  ¿Desea asignar un pasajero a ella? (si(1)/no(0))");
+                    asignarPasajero = asigPasaj.nextByte();
+                        if (asignarPasajero == 1){
+                            System.out.println("Ingrese el nombre del pasajero");
+                            registroNombre = regNombre.nextLine();
+                            System.out.println("Ingrese el numero de cedula del pasajero");
+                            registroCedula = regCedula.nextInt();
+                            pasajeroEconomico[k][l] = registroNombre;
+                            pasajeroEconCedula[k][l] = registroCedula;
+                            break;
+                        }
+                        else if (asignarPasajero == 0){
+                            break;
+                        }
+                }
+                if (l == 5) {
+                    k += 1;
+                    l = 0;
+                }else {
+                    l += 1;
+                }
+                 
+            }
+            
         }
        
     } //Cierra el Método sistemadeReportes(); 
