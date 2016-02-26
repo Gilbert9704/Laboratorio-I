@@ -18,6 +18,7 @@ public class Aerolinea {
     static int k = 0;
     static int l = 0;
     static int x = 0;
+    static int y = 0;
     static int ventanilla_pasillo = 0;
     static int vent_pasi_cent = 0;
     static int respuesta = 0;
@@ -76,20 +77,19 @@ public class Aerolinea {
             System.out.println("Qué posición desea? (Ventanilla(1)/Pasillo(2))");
             ventanilla_pasillo = VenPas.nextInt();
             
-            if (cuposDispVentEjc == 0){
-                System.out.println("¡Asientos Ventanilla de Clase Ejecutiva llenos!");
-            }
-            
             if (ventanilla_pasillo == 1){
                 i = 0;
                 j = 0;
-                while(cuposDispVentEjc >= 0){
+                while(cuposDispVentEjc >= 0){ //en ventanilla pasillo se prueba
                     
                     if (pasajeroEjecutivo[i][j] == null && pasajeroEjecCedula[i][j] == 0 ){
                         System.out.println("Ingrese el nombre del pasajero");
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
+                        //Función para determinar si ya se encuentra algun pasajero inscrito
+                        comprobar();
+
                         if (cuposDispVentEjc == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
                             break;
@@ -415,5 +415,24 @@ public class Aerolinea {
         }
        
     } //Cierra el Método sistemadeReportes(); 
+    
+    public static void comprobar(){
+        x = i;
+        y = j;
+        if (i == 0 && j > 0){
+    
+        while (y > 0){
+            if (pasajeroEjecutivo[i][j].equals(pasajeroEjecutivo[x][y-1]) && pasajeroEjecCedula[i][j] == pasajeroEjecCedula[x][y-1]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEjecutivo[i][j] = null;
+                pasajeroEjecCedula[i][j] = 0;
+                cuposDispVentEjc += 1;
+            }
+            
+            y -= 1;
+        }  
+        }
+        
+    }
     
 }
