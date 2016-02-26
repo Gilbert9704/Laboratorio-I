@@ -88,7 +88,7 @@ public class Aerolinea {
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
                         //Función para determinar si ya se encuentra algun pasajero inscrito
-                        comprobar();
+                        comprobarEjecutivo();
 
                         if (cuposDispVentEjc == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
@@ -121,6 +121,9 @@ public class Aerolinea {
                         pasajeroEjecutivo[i][j] = pasEjec.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEjecCedula[i][j] = pasEjecCed.nextInt();
+                       //Función para determinar si ya se encuentra algun pasajero inscrito
+                        comprobarEjecutivo();
+                        
                         if (cuposDispPassEjc == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
                             break;
@@ -156,6 +159,9 @@ public class Aerolinea {
                         pasajeroEconomico[i][j] = pasEcon.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        //Funcion para determinar si se repite algun pasajero en la clase economica
+                        comprobarEconomico();
+                        
                         if (cuposDispVentEco == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
                             break;
@@ -188,6 +194,9 @@ public class Aerolinea {
                         pasajeroEconomico[i][j] = pasEcon.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        //Funcion para determinar si se repite algun pasajero en la clase economica
+                        comprobarEconomico();
+                        
                         if (cuposDispCentEco == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
                             break;
@@ -220,6 +229,9 @@ public class Aerolinea {
                         pasajeroEconomico[i][j] = pasEcon.nextLine();
                         System.out.println("Ingrese el numero de Cedula del pasajero");
                         pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        //Funcion para determinar si se repite algun pasajero en la clase economica
+                        comprobarEconomico();
+                        
                         if (cuposDispPassEco == 0){
                             System.out.println("Todos los asientos de esta posicion reservados");
                             break;
@@ -416,23 +428,42 @@ public class Aerolinea {
        
     } //Cierra el Método sistemadeReportes(); 
     
-    public static void comprobar(){
+    public static void comprobarEjecutivo(){
         x = i;
         y = j;
+        
+        //Comprueba que no se repita el mismo usuario en ventanilla
         if (i == 0 && j > 0){
-    
-        while (y > 0){
-            if (pasajeroEjecutivo[i][j].equals(pasajeroEjecutivo[x][y-1]) && pasajeroEjecCedula[i][j] == pasajeroEjecCedula[x][y-1]){
+            while (y > 0){
+                if (pasajeroEjecutivo[i][j].equals(pasajeroEjecutivo[x][y-1]) && pasajeroEjecCedula[i][j] == pasajeroEjecCedula[x][y-1]){
                 System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
                 pasajeroEjecutivo[i][j] = null;
                 pasajeroEjecCedula[i][j] = 0;
                 cuposDispVentEjc += 1;
+                }
+                y -= 1;
+            }     
+        }
+        // comprueba que no se repita el mismo usuario en el pasillo
+        if (i == 1 && j > 0){
+            while (y > 0){
+                if (pasajeroEjecutivo[i][j].equals(pasajeroEjecutivo[x][y-1]) && pasajeroEjecCedula[i][j] == pasajeroEjecCedula[x][y-1]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEjecutivo[i][j] = null;
+                pasajeroEjecCedula[i][j] = 0;
+                cuposDispPassEjc += 1;
+                }
+                y -= 1;
             }
-            
-            y -= 1;
-        }  
         }
         
-    }
+    }//Cierra el metodo comprobarEjecutivo();
+    
+    public static void comprobarEconomico(){
+        x = i;
+        y = j;
+        
+        
+}//Cierra el metodo comprobarEconomico();
     
 }
