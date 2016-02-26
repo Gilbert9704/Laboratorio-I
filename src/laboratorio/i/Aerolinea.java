@@ -354,6 +354,54 @@ public class Aerolinea {
             }
             
         }
+        else if (accion == 4){
+            k = 0;
+            l = 0;
+            
+            System.out.println("Ingrese el nombre del pasajero a eliminar");
+            registroNombre = regNombre.nextLine();
+            System.out.println("Ingrese el numero de cedula del pasajero");
+            registroCedula = regCedula.nextInt();
+            System.out.println("Elija la clase en la cual se encuentra el pasajero (Ejecutiva(1)/Economica(2))");
+            buscarPasajero = buscarPasaj.nextByte();
+            
+            if (buscarPasajero == 1){
+                for (l = 0; l <= 3; l++){
+                    if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
+                    System.out.println("El pasajero " + registroNombre + " con Cedula: " + registroCedula + " canceló su reservación.");
+                    pasajeroEjecutivo[k][l] = null;
+                    pasajeroEjecCedula[k][l] = 0;
+                     break;
+                    }
+                if (l == 3 && k == 1){
+                    System.out.println("No se encontró al pasajero en la Clase Ejecutiva");
+                    break;
+                }
+                else if (l == 3){
+                         k += 1;
+                         l = 0;
+                }
+                }
+            }
+            else if (buscarPasajero == 2){
+                k = 0;
+                for (l = 0; l <= 5; l++){
+                    if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
+                        System.out.println("La Ubicación del pasajero es: " + k + l);
+                        break;
+                    }
+                if (l == 5 && k == 6){
+                    System.out.println("No se encontró al pasajero en la Clase Económica");
+                    break;
+                }    
+                else if (l == 5){
+                         k += 1;
+                         l = 0;
+                }
+                }
+            }
+            
+        }
        
     } //Cierra el Método sistemadeReportes(); 
     
