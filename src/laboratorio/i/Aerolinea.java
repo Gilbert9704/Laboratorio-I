@@ -27,6 +27,7 @@ public class Aerolinea {
     static byte cuposDispCentEco = 13;
     static byte cuposDispPassEco = 13;
     static byte contSillasOcpEjc = 0;
+    static byte buscarPasajero = 0;
     static String registroNombre = null;
     static int registroCedula = 0;
     static String pasajeroEjecutivo[][] = new String[2][4];
@@ -250,6 +251,7 @@ public class Aerolinea {
         java.util.Scanner Clase = new java.util.Scanner(System.in);
         java.util.Scanner regNombre = new java.util.Scanner(System.in);
         java.util.Scanner regCedula = new java.util.Scanner(System.in);
+        java.util.Scanner buscarPasaj = new java.util.Scanner(System.in);
         
         System.out.println("¿Qué desea? \n 1-Contar Sillas Ejecutivas Ocupadas \n 2-Localizar silla de un pasajero \n 3-Localizar silla economica disponible \n 4-Anular Reserva \n 5-Contar Numero de puestos disponibles en ventana en la clase economica");
         accion = decision.nextInt();
@@ -282,14 +284,17 @@ public class Aerolinea {
             registroNombre = regNombre.nextLine();
             System.out.println("Ingrese el numero de cedula del pasajero");
             registroCedula = regCedula.nextInt();
+            System.out.println("Elija la clase en la cual desea buscar al pasajero (Ejecutiva(1)/Economica(2))");
+            buscarPasajero = buscarPasaj.nextByte();
             
+            if (buscarPasajero == 1){
                 for (l = 0; l <= 3; l++){
-                if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
-                    System.out.println("La Ubicacion del pasajero es:" + k + l);
+                    if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
+                    System.out.println("La Ubicacion del pasajero es: " + k + l);
                     break;
-                }
+                    }
                 if (l == 3 && k == 1){
-                    System.out.println("No se encontró al pasajero en la clase ejecutiva");
+                    System.out.println("No se encontró al pasajero en la Clase Ejecutiva");
                     break;
                 }
                 else if (l == 3){
@@ -297,7 +302,24 @@ public class Aerolinea {
                          l = 0;
                 }
                 }
-            
+            }
+            else if (buscarPasajero == 2){
+                k = 0;
+                for (l = 0; l <= 5; l++){
+                    if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
+                        System.out.println("La Unicación del pasajero es: " + k + l);
+                        break;
+                    }
+                if (l == 5 && k == 6){
+                    System.out.println("No se encontró al pasajero en la Clase Económica");
+                    break;
+                }    
+                else if (l == 5){
+                         k += 1;
+                         l = 0;
+                }
+                }
+            }
         }
        
     } //Cierra el Método sistemadeReportes(); 
