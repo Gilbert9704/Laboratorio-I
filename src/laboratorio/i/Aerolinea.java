@@ -11,9 +11,12 @@ package laboratorio.i;
  * @author User
  */
 public class Aerolinea {
+    static int accion = 0;
     static int clase = 0;
     static int i = 0;
     static int j = 0;
+    static int k = 0;
+    static int l = 0;
     static int ventanilla_pasillo = 0;
     static int vent_pasi_cent = 0;
     static int respuesta = 0;
@@ -22,6 +25,7 @@ public class Aerolinea {
     static byte cuposDispVentEco = 13;
     static byte cuposDispCentEco = 13;
     static byte cuposDispPassEco = 13;
+    static byte contSillasOcpEjc = 0;
     static String pasajeroEjecutivo[][] = new String[2][4];
     static String pasajeroEconomico[][] = new String[7][6];
     static int pasajeroEjecCedula[][] = new int[2][4];
@@ -43,13 +47,12 @@ public class Aerolinea {
         if (comando == 1){
            inscribirPasajero();
         }else if (comando == 2) {
-            
+           sistemadeReportes();
         }
         }
     }
        
     public static void inscribirPasajero(){
-        
         
         java.util.Scanner VenPas = new java.util.Scanner(System.in);
         java.util.Scanner pregunta = new java.util.Scanner(System.in);
@@ -169,7 +172,8 @@ public class Aerolinea {
                     i += 1;
                     cuposDispVentEco -= 1;
                 }
-            }else if (vent_pasi_cent == 2){
+            }
+            else if (vent_pasi_cent == 2){
                 i = 0;
                 j = 2;
                 while (cuposDispCentEco >= 0){
@@ -200,7 +204,8 @@ public class Aerolinea {
                     i += 1;
                     cuposDispCentEco -= 1;
                 }
-            }else if (cuposDispPassEco >= 0){
+            }
+            else if (cuposDispPassEco >= 0){
                 i = 0;
                 j = 4;
                 while (cuposDispPassEco >= 0){
@@ -234,6 +239,41 @@ public class Aerolinea {
             }
             
         }
-    } 
+    } //Cierra el Método InscribirPasajero();
+    
+    public static void sistemadeReportes(){
+        
+        java.util.Scanner decision = new java.util.Scanner(System.in);
+        
+        System.out.println("¿Qué desea? \n 1-Contar Sillas Ejecutivas Ocupadas \n 2-Localizar silla de un pasajero \n 3-Localizar silla economica disponible \n 4-Anular Reserva \n 5-Contar Numero de puestos disponibles en ventana en la clase economica");
+        accion = decision.nextInt();
+        
+        if (accion == 1){
+            k = 0;
+            l = 0;
+            
+            for (i = 0; i <= 7; i++){
+                if (pasajeroEjecutivo[k][l] == null && pasajeroEjecCedula[k][l] == 0 ){
+                }
+                else{
+                    contSillasOcpEjc += 1;
+                }
+                if (l == 3) {
+                    k += 1;
+                    l = 0;
+                }else {
+                    l += 1;
+                }
+                 
+            }
+            System.out.println("El numero de sillas ocupadas en la clase ejecutiva es: " + contSillasOcpEjc);
+        }
+        else if (accion == 2){
+            k = 0;
+            l = 0;
+            
+        }
+       
+    } //Cierra el Método sistemadeReportes(); 
     
 }
