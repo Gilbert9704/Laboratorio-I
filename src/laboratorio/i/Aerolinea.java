@@ -17,6 +17,7 @@ public class Aerolinea {
     static int j = 0;
     static int k = 0;
     static int l = 0;
+    static int x = 0;
     static int ventanilla_pasillo = 0;
     static int vent_pasi_cent = 0;
     static int respuesta = 0;
@@ -26,6 +27,8 @@ public class Aerolinea {
     static byte cuposDispCentEco = 13;
     static byte cuposDispPassEco = 13;
     static byte contSillasOcpEjc = 0;
+    static String registroNombre = null;
+    static int registroCedula = 0;
     static String pasajeroEjecutivo[][] = new String[2][4];
     static String pasajeroEconomico[][] = new String[7][6];
     static int pasajeroEjecCedula[][] = new int[2][4];
@@ -244,6 +247,9 @@ public class Aerolinea {
     public static void sistemadeReportes(){
         
         java.util.Scanner decision = new java.util.Scanner(System.in);
+        java.util.Scanner Clase = new java.util.Scanner(System.in);
+        java.util.Scanner regNombre = new java.util.Scanner(System.in);
+        java.util.Scanner regCedula = new java.util.Scanner(System.in);
         
         System.out.println("¿Qué desea? \n 1-Contar Sillas Ejecutivas Ocupadas \n 2-Localizar silla de un pasajero \n 3-Localizar silla economica disponible \n 4-Anular Reserva \n 5-Contar Numero de puestos disponibles en ventana en la clase economica");
         accion = decision.nextInt();
@@ -272,6 +278,16 @@ public class Aerolinea {
             k = 0;
             l = 0;
             
+            System.out.println("Ingrese el nombre del pasajero a localizar");
+            registroNombre = regNombre.nextLine();
+            System.out.println("Ingrese el numero de cedula del pasajero");
+            registroCedula = regCedula.nextInt();
+            
+            for (i = 0; i <= x; i++){
+                if (pasajeroEjecutivo[k][l] == registroNombre && pasajeroEjecCedula[k][l] == registroCedula){
+                    System.out.println("La Ubicacion del pasajero es:");
+                }
+            }
         }
        
     } //Cierra el Método sistemadeReportes(); 
