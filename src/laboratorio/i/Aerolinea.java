@@ -463,7 +463,18 @@ public class Aerolinea {
         x = i;
         y = j;
         
-        
+        if (i > 0 && j == 0){
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispVentEco += 1;
+                }
+                x -= 1;
+            }     
+        }
 }//Cierra el metodo comprobarEconomico();
     
 }
+//pasajeroEconomico[i][j] == null && pasajeroEconCedula[i][j] cuposDispVentEco
