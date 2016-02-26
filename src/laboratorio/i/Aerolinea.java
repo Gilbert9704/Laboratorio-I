@@ -473,8 +473,65 @@ public class Aerolinea {
                 }
                 x -= 1;
             }     
+        } 
+        else if (i >= 0 && j == 1) {
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispVentEco += 1;
+                }
+                x -= 1;
+            }
+        }//Ambos de los condicionales anteriores impiden que en ventanilla inscriba el mismo pasajero
+        
+        else if (i >= 0 && j == 2){
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispCentEco += 1;
+                }
+                x -= 1;
+            }
+        }
+        else if (i >= 0 && j == 3){
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispCentEco += 1;
+                }
+                x -= 1;
+            }
+        } //Ambos de los condicionales anteriores impiden que en el centro se inscriba el msmo pasajero
+        
+        else if (i >= 0 && j == 4){
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispPassEco += 1;
+                }
+                x -= 1;
+            }
+        }
+        else if (i >= 0 && j == 5){
+            while (x > 0){
+                if (pasajeroEconomico[i][j].equals(pasajeroEconomico[x-1][y]) && pasajeroEconCedula[i][j] == pasajeroEconCedula[x-1][y]){
+                System.out.println("Los datos que acaba de ingresar ya se encuentran en el sistema");
+                pasajeroEconomico[i][j] = null;
+                pasajeroEconCedula[i][j] = 0;
+                cuposDispPassEco += 1;
+                }
+                x -= 1;
+            }
         }
 }//Cierra el metodo comprobarEconomico();
     
 }
-//pasajeroEconomico[i][j] == null && pasajeroEconCedula[i][j] cuposDispVentEco
+// cuposDispPassEco
