@@ -19,9 +19,9 @@ public class Aerolinea {
     static int respuesta = 0;
     static byte cuposDispVentEjc = 3;
     static byte cuposDispPassEjc = 3;
-    static byte cuposDispVentEco = 14;
-    static byte cuposDispCentEco = 14;
-    static byte cuposDispPassEco = 14;
+    static byte cuposDispVentEco = 13;
+    static byte cuposDispCentEco = 13;
+    static byte cuposDispPassEco = 13;
     static String pasajeroEjecutivo[][] = new String[2][4];
     static String pasajeroEconomico[][] = new String[7][6];
     static int pasajeroEjecCedula[][] = new int[2][4];
@@ -142,9 +142,97 @@ public class Aerolinea {
                 i = 0;
                 j = 0;
                 while (cuposDispVentEco >= 0){
-                    
+                    if (pasajeroEconomico[i][j] == null && pasajeroEconCedula[i][j] == 0){
+                        System.out.println("Ingrese el nombre del pasajero");
+                        pasajeroEconomico[i][j] = pasEcon.nextLine();
+                        System.out.println("Ingrese el numero de Cedula del pasajero");
+                        pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        if (cuposDispVentEco == 0){
+                            System.out.println("Todos los asientos de esta posicion reservados");
+                            break;
+                        }
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispVentEco);
+                        respuesta = pregunta.nextInt();
+                        
+                        if (respuesta == 1 && pasajeroEconomico[i+1][j] == null){   
+                        }else if (respuesta == 1 && pasajeroEconomico[i+1][j] != null){
+                            System.out.println("Todos los asientos de esta posicion se encuentran reservados");
+                            break;
+                        }else if (respuesta == 0){
+                            break;
+                        }
+                    }
+                    if (i == 6){
+                        j += 1;
+                        i = 0;
+                    }
+                    i += 1;
+                    cuposDispVentEco -= 1;
+                }
+            }else if (vent_pasi_cent == 2){
+                i = 0;
+                j = 2;
+                while (cuposDispCentEco >= 0){
+                        if (pasajeroEconomico[i][j] == null && pasajeroEconCedula[i][j] == 0){
+                        System.out.println("Ingrese el nombre del pasajero");
+                        pasajeroEconomico[i][j] = pasEcon.nextLine();
+                        System.out.println("Ingrese el numero de Cedula del pasajero");
+                        pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        if (cuposDispCentEco == 0){
+                            System.out.println("Todos los asientos de esta posicion reservados");
+                            break;
+                        }
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispCentEco);
+                        respuesta = pregunta.nextInt();
+                        
+                        if (respuesta == 1 && pasajeroEconomico[i+1][j] == null){   
+                        }else if (respuesta == 1 && pasajeroEconomico[i+1][j] != null){
+                            System.out.println("Todos los asientos de esta posicion se encuentran reservados");
+                            break;
+                        }else if (respuesta == 0){
+                            break;
+                        }
+                    }
+                    if (i == 6){
+                        j += 1;
+                        i = 0;
+                    }
+                    i += 1;
+                    cuposDispCentEco -= 1;
+                }
+            }else if (cuposDispPassEco >= 0){
+                i = 0;
+                j = 4;
+                while (cuposDispPassEco >= 0){
+                        if (pasajeroEconomico[i][j] == null && pasajeroEconCedula[i][j] == 0){
+                        System.out.println("Ingrese el nombre del pasajero");
+                        pasajeroEconomico[i][j] = pasEcon.nextLine();
+                        System.out.println("Ingrese el numero de Cedula del pasajero");
+                        pasajeroEconCedula[i][j] = pasEconCed.nextInt();
+                        if (cuposDispPassEco == 0){
+                            System.out.println("Todos los asientos de esta posicion reservados");
+                            break;
+                        }
+                        System.out.println("¿Desea Agregar otro pasajero a esta clase? (si(1)/no(0))" + " *Cupos Disponibles: " + cuposDispPassEco);
+                        respuesta = pregunta.nextInt();
+                        
+                        if (respuesta == 1 && pasajeroEconomico[i+1][j] == null){   
+                        }else if (respuesta == 1 && pasajeroEconomico[i+1][j] != null){
+                            System.out.println("Todos los asientos de esta posicion se encuentran reservados");
+                            break;
+                        }else if (respuesta == 0){
+                            break;
+                        }
+                    }
+                    if (i == 6){
+                        j += 1;
+                        i = 0;
+                    }
+                    i += 1;
+                    cuposDispPassEco -= 1;
                 }
             }
+            
         }
     } 
     
