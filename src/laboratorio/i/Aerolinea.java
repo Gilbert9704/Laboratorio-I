@@ -283,11 +283,21 @@ public class Aerolinea {
             System.out.println("Ingrese el numero de cedula del pasajero");
             registroCedula = regCedula.nextInt();
             
-            for (i = 0; i <= x; i++){
-                if (pasajeroEjecutivo[k][l] == registroNombre && pasajeroEjecCedula[k][l] == registroCedula){
-                    System.out.println("La Ubicacion del pasajero es:");
+                for (l = 0; l <= 3; l++){
+                if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
+                    System.out.println("La Ubicacion del pasajero es:" + k + l);
+                    break;
                 }
-            }
+                if (l == 3 && k == 1){
+                    System.out.println("No se encontró al pasajero en la clase ejecutiva");
+                    break;
+                }
+                else if (l == 3){
+                         k += 1;
+                         l = 0;
+                }
+                }
+            
         }
        
     } //Cierra el Método sistemadeReportes(); 
