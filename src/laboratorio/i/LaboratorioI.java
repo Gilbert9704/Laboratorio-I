@@ -15,7 +15,7 @@ public class LaboratorioI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Este programa imprime una secuencia de asteriscos 
         int cuenta_as = 1;
         int contador = 1;
         int blan = 1;

@@ -16,6 +16,7 @@ public class NumeroMayor {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Este programa a partir de tres numeros suministrados, escoge el mayor y lo imprime.
         java.util.Scanner ingrese_a = new java.util.Scanner(System.in);
         java.util.Scanner ingrese_b = new java.util.Scanner(System.in);
         java.util.Scanner ingrese_c = new java.util.Scanner(System.in);

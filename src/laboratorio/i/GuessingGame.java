@@ -14,7 +14,8 @@ public class GuessingGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Este programa me solicita un numero y lo compara con uno escogido aleatoriamente.
+        
         String playAgain = "y";
         
         while ("y".equals(playAgain)){
