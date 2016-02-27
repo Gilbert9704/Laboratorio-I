@@ -310,11 +310,11 @@ public class Aerolinea {
                     for (l = 0; l <= 3; l++){
                         if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
                             //Este condicional compara datos 
-                            numerodeSilla();//Este metodo me permite conb¿vertir cada coordenada en un numero de silla
+                            numerodeSilla();//Este metodo me permite convertir cada coordenada en un numero de silla
                             System.out.println("La Ubicacion del pasajero es la silla: " + sillaEjecutiva);
                             break;
                         }
-                        if (l == 3 && k == 1){
+                        if (l == 3 && k == 1){//Ejecutiva
                             System.out.println("No se encontró al pasajero en la Clase Ejecutiva");
                             break;
                         }
@@ -324,7 +324,7 @@ public class Aerolinea {
                         }
                     }
                 }
-                else if (buscarPasajero == 2){
+                else if (buscarPasajero == 2){//Economica
                     k = 0;
                     for (l = 0; l <= 5; l++){
                         if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
@@ -342,7 +342,7 @@ public class Aerolinea {
                         }
                     }
                 }   break;
-            case 3:
+            case 3://Localizar silla economica disponible
                 k = 0;
                 l = 0;
                 for (i = 0; i <= 41; i++){
@@ -370,7 +370,7 @@ public class Aerolinea {
                     }
                     
                 }   break;
-            case 4:
+            case 4://Anular Reserva
                 k = 0;
                 l = 0;
                 System.out.println("Ingrese el nombre del pasajero a eliminar");
@@ -379,9 +379,9 @@ public class Aerolinea {
                 registroCedula = regCedula.nextInt();
                 System.out.println("Elija la clase en la cual se encuentra el pasajero (Ejecutiva(1)/Economica(2))");
                 buscarPasajero = buscarPasaj.nextByte();
-                if (buscarPasajero == 1){
+                if (buscarPasajero == 1){//Ejecutiva
                     k = 0;
-                    for (l = 0; l <= 3; l++){
+                    for (l = 0; l <= 3; l++){//Identifica la ubicacion del pasajero y elimina sus datos
                         if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
                             System.out.println("El pasajero " + registroNombre + " con Cedula: " + registroCedula + " canceló su reservación.");
                             pasajeroEjecutivo[k][l] = null;
@@ -398,7 +398,7 @@ public class Aerolinea {
                         }
                     }
                 }
-                else if (buscarPasajero == 2){
+                else if (buscarPasajero == 2){//Economica
                     k = 0;
                     for (l = 0; l <= 5; l++){
                         if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
@@ -417,7 +417,7 @@ public class Aerolinea {
                         }
                     }
                 }   break;
-            case 5:
+            case 5://Contar Numero de puestos disponibles en ventana en la clase economica
                 k = 0;
                 l = 0;
                 for (i = 0; i <= 13; i++){
@@ -433,7 +433,7 @@ public class Aerolinea {
                     
                 }   System.out.println("El numero de sillas disponibles en ventanilla de la Clase Economica es: " + contSillasDispEco);
                 break;
-            case 6:
+            case 6://regresar
                 break;
             default:
                 break;
@@ -701,6 +701,6 @@ public class Aerolinea {
                 sillaEconomica = 50;
             }
         }
-    }
+    }//Cierra el método numerodeSilla();
     
 }
