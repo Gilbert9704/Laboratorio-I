@@ -309,7 +309,8 @@ public class Aerolinea {
                 if (buscarPasajero == 1){
                     for (l = 0; l <= 3; l++){
                         if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
-                            numerodeSilla();
+                            //Este condicional compara datos 
+                            numerodeSilla();//Este metodo me permite conb¿vertir cada coordenada en un numero de silla
                             System.out.println("La Ubicacion del pasajero es la silla: " + sillaEjecutiva);
                             break;
                         }
