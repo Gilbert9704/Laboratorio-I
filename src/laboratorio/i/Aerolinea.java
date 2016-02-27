@@ -31,6 +31,8 @@ public class Aerolinea {
     static byte contSillasDispEco = 0;
     static byte buscarPasajero = 0;
     static byte asignarPasajero = 0;
+    static byte sillaEjecutiva = 0;
+    static byte sillaEconomica = 0;
     static String registroNombre = null;
     static int registroCedula = 0;
     static String pasajeroEjecutivo[][] = new String[2][4];
@@ -301,7 +303,8 @@ public class Aerolinea {
                 if (buscarPasajero == 1){
                     for (l = 0; l <= 3; l++){
                         if ((pasajeroEjecutivo[k][l] == null ? registroNombre == null : pasajeroEjecutivo[k][l].equals(registroNombre)) && pasajeroEjecCedula[k][l] == registroCedula){
-                            System.out.println("La Ubicacion del pasajero es: " + k + l);
+                            numerodeSilla();
+                            System.out.println("La Ubicacion del pasajero es la silla: " + sillaEjecutiva);
                             break;
                         }
                         if (l == 3 && k == 1){
@@ -318,7 +321,8 @@ public class Aerolinea {
                     k = 0;
                     for (l = 0; l <= 5; l++){
                         if ((pasajeroEconomico[k][l] == null ? registroNombre == null : pasajeroEconomico[k][l].equals(registroNombre)) && pasajeroEconCedula[k][l] == registroCedula){
-                            System.out.println("La Ubicación del pasajero es: " + k + l);
+                            numerodeSilla();
+                            System.out.println("La Ubicación del pasajero es la silla: " + sillaEconomica);
                             break;
                         }
                         if (l == 5 && k == 6){
@@ -336,7 +340,7 @@ public class Aerolinea {
                 l = 0;
                 for (i = 0; i <= 41; i++){
                     if (pasajeroEconomico[k][l] == null && pasajeroEconCedula[k][l] == 0 ){
-                        System.out.println("Se encontró disponible la silla: " + k + l + "  ¿Desea asignar un pasajero a ella? (si(1)/no(0))");
+                        System.out.println("Se encontró disponible la silla: " + sillaEconomica + "  ¿Desea asignar un pasajero a ella? (si(1)/no(0))");
                         asignarPasajero = asigPasaj.nextByte();
                         if (asignarPasajero == 1){
                             System.out.println("Ingrese el nombre del pasajero");
@@ -531,7 +535,163 @@ public class Aerolinea {
                 x -= 1;
             }
         }
-}//Cierra el metodo comprobarEconomico();
+    }//Cierra el metodo comprobarEconomico();
+    
+    public static void numerodeSilla(){
+        if (buscarPasajero == 1){
+            if (k == 0 && l == 0){
+                sillaEjecutiva = 1;
+            }
+            else if (k == 0 && l == 1){
+                sillaEjecutiva = 2;
+            }
+            else if (k == 0 && l == 2){
+                sillaEjecutiva = 3;
+            }
+            else if (k == 0 && l == 3){
+                sillaEjecutiva = 4;
+            }
+            else if (k == 1 && l == 0){
+                sillaEjecutiva = 5;
+            }
+            else if (k == 1 && l == 1){
+                sillaEjecutiva = 6;
+            }
+            else if (k == 1 && l == 2){
+                sillaEjecutiva = 7;
+            }
+            else if (k == 1 && l == 3){
+                sillaEjecutiva = 8;
+            }
+        }
+        else if (buscarPasajero == 2){
+            if (k == 0 && l == 0){
+                sillaEconomica = 9;
+            }
+            else if (k == 0 && l == 1){
+                sillaEconomica = 10;
+            }
+            else if (k == 0 && l == 2){
+                sillaEconomica = 11;
+            }
+            else if (k == 0 && l == 3){
+                sillaEconomica = 12;
+            }
+            else if (k == 0 && l == 4){
+                sillaEconomica = 13;
+            }
+            else if (k == 0 && l == 5){
+                sillaEconomica = 14;
+            }
+            else if (k == 1 && l == 0){
+                sillaEconomica = 15;
+            }
+            else if (k == 1 && l == 1){
+                sillaEconomica = 16;
+            }
+            else if (k == 1 && l == 2){
+                sillaEconomica = 17;
+            }
+            else if (k == 1 && l == 3){
+                sillaEconomica = 18;
+            }
+            else if (k == 1 && l == 4){
+                sillaEconomica = 19;
+            }
+            else if (k == 1 && l == 5){
+                sillaEconomica = 20;
+            }
+            else if (k == 2 && l == 0){
+                sillaEconomica = 21;
+            }
+            else if (k == 2 && l == 1){
+                sillaEconomica = 22;
+            }
+            else if (k == 2 && l == 2){
+                sillaEconomica = 23;
+            }
+            else if (k == 2 && l == 3){
+                sillaEconomica = 24;
+            }
+            else if (k == 2 && l == 4){
+                sillaEconomica = 25;
+            }
+            else if (k == 2 && l == 5){
+                sillaEconomica = 26;
+            }
+            else if (k == 3 && l == 0){
+                sillaEconomica = 27;
+            }
+            else if (k == 3 && l == 1){
+                sillaEconomica = 28;
+            }
+            else if (k == 3 && l == 2){
+                sillaEconomica = 29;
+            }
+            else if (k == 3 && l == 3){
+                sillaEconomica = 30;
+            }
+            else if (k == 3 && l == 4){
+                sillaEconomica = 31;
+            }
+            else if (k == 3 && l == 5){
+                sillaEconomica = 32;
+            }
+            else if (k == 4 && l == 0){
+                sillaEconomica = 33;
+            }
+            else if (k == 4 && l == 1){
+                sillaEconomica = 34;
+            }
+            else if (k == 4 && l == 2){
+                sillaEconomica = 35;
+            }
+            else if (k == 4 && l == 3){
+                sillaEconomica = 36;
+            }
+            else if (k == 4 && l == 4){
+                sillaEconomica = 37;
+            }
+            else if (k == 4 && l == 5){
+                sillaEconomica = 38;
+            }
+            else if (k == 5 && l == 0){
+                sillaEconomica = 39;
+            }
+            else if (k == 5 && l == 1){
+                sillaEconomica = 40;
+            }
+            else if (k == 5 && l == 2){
+                sillaEconomica = 41;
+            }
+            else if (k == 5 && l == 3){
+                sillaEconomica = 42;
+            }
+            else if (k == 5 && l == 4){
+                sillaEconomica = 43;
+            }
+            else if (k == 5 && l == 5){
+                sillaEconomica = 44;
+            }
+            else if (k == 6 && l == 0){
+                sillaEconomica = 45;
+            }
+            else if (k == 6 && l == 1){
+                sillaEconomica = 46;
+            }
+            else if (k == 6 && l == 2){
+                sillaEconomica = 47;
+            }
+            else if (k == 6 && l == 3){
+                sillaEconomica = 48;
+            }
+            else if (k == 6 && l == 4){
+                sillaEconomica = 49;
+            }
+            else if (k == 6 && l == 5){
+                sillaEconomica = 50;
+            }
+        }
+    }
     
 }
-// cuposDispPassEco
