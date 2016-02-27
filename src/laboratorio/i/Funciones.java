@@ -16,7 +16,7 @@ public class Funciones {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Este programa me ejecuta 2 metodos distintos y me imprime el mensaje que contiene cada uno.
         System.out.println("Primera Funcion en Main");
         func1();
         func2();
